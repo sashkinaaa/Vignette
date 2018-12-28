@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SelectUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterNewUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="right" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterNewUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterNewUsersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterNewVignette">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cat" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterNewVignetteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterNewVignetteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowAllData">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowAllDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowAllDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectVignetteByCarNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectVignetteByCarNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectVignetteByCarNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SelectUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectUser" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterNewUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterNewUsers" />
+  </wsdl:message>
+  <wsdl:message name="RegisterNewUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterNewUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterNewVignetteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterNewVignette" />
+  </wsdl:message>
+  <wsdl:message name="RegisterNewVignetteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterNewVignetteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowAllDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowAllData" />
+  </wsdl:message>
+  <wsdl:message name="ShowAllDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowAllDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectVignetteByCarNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectVignetteByCarNumber" />
+  </wsdl:message>
+  <wsdl:message name="SelectVignetteByCarNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectVignetteByCarNumberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="SelectUser">
+      <wsdl:input message="tns:SelectUserSoapIn" />
+      <wsdl:output message="tns:SelectUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewUsers">
+      <wsdl:input message="tns:RegisterNewUsersSoapIn" />
+      <wsdl:output message="tns:RegisterNewUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewVignette">
+      <wsdl:input message="tns:RegisterNewVignetteSoapIn" />
+      <wsdl:output message="tns:RegisterNewVignetteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowAllData">
+      <wsdl:input message="tns:ShowAllDataSoapIn" />
+      <wsdl:output message="tns:ShowAllDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectVignetteByCarNumber">
+      <wsdl:input message="tns:SelectVignetteByCarNumberSoapIn" />
+      <wsdl:output message="tns:SelectVignetteByCarNumberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelectUser">
+      <soap:operation soapAction="http://tempuri.org/SelectUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewUsers">
+      <soap:operation soapAction="http://tempuri.org/RegisterNewUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewVignette">
+      <soap:operation soapAction="http://tempuri.org/RegisterNewVignette" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAllData">
+      <soap:operation soapAction="http://tempuri.org/ShowAllData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectVignetteByCarNumber">
+      <soap:operation soapAction="http://tempuri.org/SelectVignetteByCarNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelectUser">
+      <soap12:operation soapAction="http://tempuri.org/SelectUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewUsers">
+      <soap12:operation soapAction="http://tempuri.org/RegisterNewUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewVignette">
+      <soap12:operation soapAction="http://tempuri.org/RegisterNewVignette" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowAllData">
+      <soap12:operation soapAction="http://tempuri.org/ShowAllData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectVignetteByCarNumber">
+      <soap12:operation soapAction="http://tempuri.org/SelectVignetteByCarNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:56678/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:56678/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

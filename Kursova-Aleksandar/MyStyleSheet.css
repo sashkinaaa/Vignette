@@ -1,0 +1,72 @@
+﻿body
+{
+background-color:#d0e4fe;       /*light blue*/
+}
+
+.mylabel{
+  font-weight:bold;
+}
+
+h1
+{
+color:#FF8C00;                  /*text - dark orange*/
+text-align:center;
+}
+
+fieldset {
+  background-color: #FFFF00;    /*yellow*/
+  color: #008CBA;              
+  border: 2px solid #008CBA;    /*blue*/
+}
+legend {
+  background-color:#d0e4fe;     /*light blue*/
+  padding: 8px;                 /*height*/
+  border: 2px solid #008CBA;    /*blue*/
+  font-weight:bold;
+}
+
+.textbox {    
+    border: 1px solid #008CBA;  /*blue*/
+    color: #008CBA;             /*text - blue*/ 
+}  
+ .textbox:focus {  
+     border: 3px solid #008CBA; /*blue*/
+}  
+
+.mybtn {
+  background-color: white; 
+  color: #008CBA;               /*text - blue*/
+  border: 2px solid #008CBA;
+  padding: 8px 16px;            /*height and width*/
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 4px;              /*space(border) around the button*/
+  transition-duration: 0.5s;    /*color change on hover duration*/
+  cursor: pointer;
+}
+.mybtn:hover {
+  background-color: #008CBA;    /*blue*/
+  color: white;                 /*text-white*/
+}
+
+hr
+{
+background-color: #008CBA;      /*blue*/
+height: 3px; 
+border: 0;
+}
+
+#dataGrid {
+  border: 2px solid #008CBA;    /*blue*/
+  width: 100%;
+}
+
+#dataGrid td {                  /*td=cell*/
+  border: 1px solid #008CBA;    /*blue*/
+  padding: 8px;                 /*height*/
+}
+
+#dataGrid tr:nth-child(even){background-color: #ffffff;}    /*white*/
+#dataGrid tr:nth-child(odd){background-color: #ddd;}        /*light grey*/
+
+#dataGrid tr:hover {background-color: #C0C0C0;}             /*grey*/
