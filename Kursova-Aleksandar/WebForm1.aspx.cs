@@ -42,7 +42,6 @@ namespace Kursova_Aleksandar
         {
             PIServiceReference.WebService1SoapClient serviceRef = new PIServiceReference.WebService1SoapClient();
             string rawData = serviceRef.SelectVignetteByCarNumber(Number.Text);
-            //LbResult2.Text = rawData;
             if (rawData.Equals("[]"))
             {
                 LbResult2.Text = "Няма намерени записи по въведения от вас номер!";
