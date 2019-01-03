@@ -48,23 +48,27 @@ namespace Kursova_Aleksandar
         [WebMethod]
         public string RegisterNewUsers(string user, string pass, int right)
         {
-            string constr = ConfigurationManager.ConnectionStrings["ConnectionTest"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            if (SelectUserByUsername(user).Equals("[]"))
             {
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO Users (Username, Password, Rights) VALUES (@Username, @Password, @Rights)"))
+                string constr = ConfigurationManager.ConnectionStrings["ConnectionTest"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.Parameters.AddWithValue("@Username", user);
-                    cmd.Parameters.AddWithValue("@Password", pass);
-                    cmd.Parameters.AddWithValue("@Rights", right);
-                    cmd.Connection = con;
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    return JsonConvert.SerializeObject("Регистрирахте се успешно!", Newtonsoft.Json.Formatting.Indented);
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Users (Username, Password, Rights) VALUES (@Username, @Password, @Rights)"))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", user);
+                        cmd.Parameters.AddWithValue("@Password", pass);
+                        cmd.Parameters.AddWithValue("@Rights", right);
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        return JsonConvert.SerializeObject("Регистрирахте се успешно!", Newtonsoft.Json.Formatting.Indented);
+                    }
+
                 }
-
             }
-
+            else
+                return JsonConvert.SerializeObject("Вече съществува потребител с това потребителско име!", Newtonsoft.Json.Formatting.Indented);
         }
 
         [WebMethod]
@@ -128,6 +132,29 @@ namespace Kursova_Aleksandar
                         using (DataTable dt = new DataTable())
                         {
                             dt.TableName = "Vignette";
+                            sda.Fill(dt);
+                            return JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented);
+                        }
+                    }
+                }
+            }
+        }
+
+        public string SelectUserByUsername(string user)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["ConnectionTest"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE Username = @Username"))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Parameters.AddWithValue("@Username", user);
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            dt.TableName = "Users";
                             sda.Fill(dt);
                             return JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented);
                         }

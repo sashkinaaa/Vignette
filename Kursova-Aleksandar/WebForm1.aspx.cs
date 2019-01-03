@@ -90,7 +90,6 @@ namespace Kursova_Aleksandar
         }
         public void MsgBox(String ex, Page pg, Object obj)
         {
-            //MessageBox
             string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
             Type cstype = obj.GetType();
             ClientScriptManager cs = pg.ClientScript;
