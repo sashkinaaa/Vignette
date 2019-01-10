@@ -33,9 +33,25 @@ namespace Kursova_Aleksandar
                 MsgBox("Нямате права за тази операция!", this.Page, this);
             else
             {
-                PIServiceReference.WebService1SoapClient serviceRef = new PIServiceReference.WebService1SoapClient();
-                LbResult.Text = serviceRef.RegisterNewVignette(carNumber.Text, expirationDate.Text, int.Parse(Category.Text));
-                BtnShow_Click(sender, e);
+                int number;
+                bool success = Int32.TryParse(Category.Text, out number);
+                if (success)
+                {
+                    if (number == 1 || number == 2 || number == 3)
+                    {
+                        PIServiceReference.WebService1SoapClient serviceRef = new PIServiceReference.WebService1SoapClient();
+                        LbResult.Text = serviceRef.RegisterNewVignette(carNumber.Text, expirationDate.Text, number);
+                        BtnShow_Click(sender, e);
+                    }
+                    else
+                    {
+                        LbResult.Text = "Категорията трябва да е число между 1 и 3!";
+                    }
+                }
+                else
+                {
+                    LbResult.Text = "Категорията трябва да е число между 1 и 3!";
+                }
             }
         }
         protected void BtnSelect_Click(object sender, EventArgs e)
