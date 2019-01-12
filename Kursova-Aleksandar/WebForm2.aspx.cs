@@ -45,13 +45,21 @@ namespace Kursova_Aleksandar
 
         protected void BtnRegister_Click(object sender, EventArgs e)
         {
-            if (RegPassword.Text.Length > 4)
+            bool isHuman = ExampleCaptcha.Validate(txtCaptcha.Text);
+            if (isHuman)
             {
-                PIServiceReference.WebService1SoapClient serviceRef = new PIServiceReference.WebService1SoapClient();
-                LbResult.Text = serviceRef.RegisterNewUsers(RegUsername.Text, RegPassword.Text, 0);
+                if (RegPassword.Text.Length > 4)
+                {
+                    PIServiceReference.WebService1SoapClient serviceRef = new PIServiceReference.WebService1SoapClient();
+                    LbResult.Text = serviceRef.RegisterNewUsers(RegUsername.Text, RegPassword.Text, 0);
+                }
+                else
+                    LbResult.Text = "Паролата трябва да е с дължина поне 5 символа!";
             }
             else
-                LbResult.Text = "Паролата трябва да е с дължина поне 5 символа!";
+                LbResult.Text = "Въведете текста от изображението правилно!";
         }
+       
+        
     }
 }

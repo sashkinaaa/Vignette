@@ -18,7 +18,11 @@ namespace Kursova_Aleksandar
             {
                 LbHello.Text = "Здравейте, " + Session["user"] + "!";
                 if (int.Parse(Session["Rights"].ToString()) == 0)
+                {
                     BtnShow.Visible = false;
+                    vignetteDiv.Visible = false;
+                }
+                    
             }
             else
             {

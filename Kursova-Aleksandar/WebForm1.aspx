@@ -9,8 +9,9 @@
 </head>
 <body>
     <h1><asp:Label ID="LbHello" runat="server"></asp:Label></h1>
+    <asp:Image style="width: 100%;" runat="server" ImageURL="~/Images/e-vignette2.png" ></asp:Image>
     <form id="form1" runat="server">
-    <div>
+    <div id="vignetteDiv" runat="server">
         <fieldset>
         <legend>Регистрация на нова винетка</legend>
         <asp:Label CssClass="mylabel" ID="LbCarNumber" runat="server" Text="Номер на автомобила: "></asp:Label>
@@ -24,10 +25,10 @@
         <br/>
         <asp:Label CssClass="mylabel" ID="LbResult" runat="server"></asp:Label>
         </fieldset>
+        <br/>
+        <hr/>
+        <br/>
     </div>
-    <br/>
-    <hr/>
-    <br/>
     <div>
         <fieldset>
         <legend>Проверка на винетка по номер на автомобила</legend>
