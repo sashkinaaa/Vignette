@@ -44,7 +44,10 @@ namespace Kursova_Aleksandar
                     if (number == 1 || number == 2 || number == 3)
                     {
                         PIServiceReference.WebService1SoapClient serviceRef = new PIServiceReference.WebService1SoapClient();
-                        LbResult.Text = serviceRef.RegisterNewVignette(carNumber.Text, expirationDate.Text, number);
+                        //LbResult.Text = serviceRef.RegisterNewVignette(carNumber.Text, expirationDate.Text, number);
+                        DateTime today = DateTime.UtcNow.Date;
+                        DateTime expiration = today.AddDays(Double.Parse(expire.SelectedItem.Value));
+                        LbResult.Text = serviceRef.RegisterNewVignette(carNumber.Text, expiration.ToString("dd/MM/yyyy"), number);
                         BtnShow_Click(sender, e);
                     }
                     else

@@ -67,13 +67,13 @@ namespace Kursova_Aleksandar {
         protected global::System.Web.UI.WebControls.Label LbExpirationDate;
         
         /// <summary>
-        /// expirationDate control.
+        /// expire control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox expirationDate;
+        protected global::System.Web.UI.WebControls.DropDownList expire;
         
         /// <summary>
         /// LbCategory control.

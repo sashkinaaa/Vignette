@@ -16,8 +16,13 @@
         <legend>Регистрация на нова винетка</legend>
         <asp:Label CssClass="mylabel" ID="LbCarNumber" runat="server" Text="Номер на автомобила: "></asp:Label>
         <asp:TextBox ID="carNumber" class="textbox" runat="server"></asp:TextBox>
-        <asp:Label CssClass="mylabel" ID="LbExpirationDate" runat="server" Text="Валидна до: "></asp:Label>
-        <asp:TextBox ID="expirationDate" class="textbox" runat="server"></asp:TextBox>
+        <asp:Label CssClass="mylabel" ID="LbExpirationDate" runat="server" Text="Период: "></asp:Label>
+        <asp:DropDownList id="expire" AutoPostBack="True" runat="server">
+                  <asp:ListItem Selected="True" Value="7"> Седмична </asp:ListItem>
+                  <asp:ListItem Value="30"> Месечна </asp:ListItem>
+                  <asp:ListItem Value="90"> 3 Месеца </asp:ListItem>
+                  <asp:ListItem Value="365"> Годишна </asp:ListItem>
+         </asp:DropDownList>
         <asp:Label CssClass="mylabel" ID="LbCategory" runat="server" Text="Категория: "></asp:Label>
         <asp:TextBox ID="Category" class="textbox" runat="server"></asp:TextBox>
         <br />
